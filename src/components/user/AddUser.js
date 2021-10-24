@@ -1,5 +1,7 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import {
+  Alert,
   Button,
   Col,
   Container,
@@ -11,7 +13,21 @@ import { useForm } from 'react-hook-form';
 
 const AddUser = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [successMsg, setSuccessMsg] = useState('');
+  const onSubmit = (user) => {
+    axios
+      .post('http://localhost:8000/user', user)
+      .then((res) => {
+        console.log(res);
+        if (res.data.insertedId) {
+          setSuccessMsg('Data Inserted Successfully!!');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // console.log(user);
+  };
   return (
     <>
       <Container>
@@ -25,6 +41,7 @@ const AddUser = () => {
             md={{ span: 6, offset: 3 }}
             className="bg-light my-3 rounded shadow p-2"
           >
+            {successMsg && <Alert variant="success">{successMsg} </Alert>}
             <Form onSubmit={handleSubmit(onSubmit)} className="m-5">
               <FloatingLabel
                 controlId="floatingInput"
