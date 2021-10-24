@@ -12,16 +12,17 @@ import {
 import { useForm } from 'react-hook-form';
 
 const AddUser = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [successMsg, setSuccessMsg] = useState('');
   const onSubmit = (user) => {
     axios
       .post('http://localhost:8000/user', user)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.insertedId) {
           setSuccessMsg('Data Inserted Successfully!!');
         }
+        reset({});
       })
       .catch((error) => {
         console.log(error);
