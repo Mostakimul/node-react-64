@@ -7,8 +7,11 @@ import {
   Form,
   Row,
 } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 
 const AddUser = () => {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
   return (
     <>
       <Container>
@@ -22,20 +25,28 @@ const AddUser = () => {
             md={{ span: 6, offset: 3 }}
             className="bg-light my-3 rounded shadow p-2"
           >
-            <Form className="m-5">
+            <Form onSubmit={handleSubmit(onSubmit)} className="m-5">
               <FloatingLabel
                 controlId="floatingInput"
-                label="Email address"
+                label="Your Name"
                 className="mb-3"
               >
-                <Form.Control type="email" placeholder="name@example.com" />
+                <Form.Control
+                  {...register('name', { required: true, maxLength: 20 })}
+                  type="text"
+                  placeholder="John doe"
+                />
               </FloatingLabel>
               <FloatingLabel
-                controlId="floatingPassword"
-                label="Password"
+                controlId="floatingInput"
+                label="Email"
                 className="mb-3"
               >
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control
+                  {...register('email', { required: true })}
+                  type="email"
+                  placeholder="Email"
+                />
               </FloatingLabel>
               <Button variant="primary" type="submit">
                 Submit
