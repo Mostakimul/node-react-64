@@ -8,13 +8,13 @@ import {
   Row,
 } from 'react-bootstrap';
 
-const AddUser = () => {
+const UpdateUser = () => {
   return (
     <>
       <Container>
         <Row>
           <Col className="bg-light my-3 rounded shadow p-2">
-            <h3 className="text-center">Add New User</h3>
+            <h3 className="text-center">Edit User</h3>
           </Col>
         </Row>
         <Row>
@@ -48,4 +48,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default UpdateUser;
