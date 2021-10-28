@@ -12,7 +12,7 @@ const UsersTable = (props) => {
       <td>
         <Button
           as={Link}
-          to="/edit-user"
+          to={`/edit-user/${_id}`}
           variant="info"
           size="sm"
           className="mx-1"

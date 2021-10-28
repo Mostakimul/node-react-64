@@ -12,7 +12,7 @@ function App() {
     <Router>
       <TheHeader />
       <Switch>
-        <Route path="/edit-user">
+        <Route path="/edit-user/:id">
           <UpdateUser></UpdateUser>
         </Route>
         <Route path="/all-users">
