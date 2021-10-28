@@ -17,7 +17,7 @@ const AddUser = () => {
   // submitting for add user
   const onSubmit = (user) => {
     axios
-      .post('http://localhost:8000/addUser', user)
+      .post('https://guarded-wildwood-98662.herokuapp.com/addUser', user)
       .then((res) => {
         if (res.data.insertedId) {
           setSuccessMsg('Data Inserted Successfully!!');

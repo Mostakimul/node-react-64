@@ -12,7 +12,9 @@ const Users = () => {
   // getting all users
   const getUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/users');
+      const response = await axios.get(
+        'https://guarded-wildwood-98662.herokuapp.com/users'
+      );
       setUsers(response.data);
     } catch (error) {
       console.log(error);
@@ -22,7 +24,9 @@ const Users = () => {
   // Delete a user
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:8000/delete-user/${id}`);
+      const res = await axios.delete(
+        `https://guarded-wildwood-98662.herokuapp.com/delete-user/${id}`
+      );
       if (res.data.deletedCount === 1) {
         setDeleteMsg('User Deleted Successfully!');
       }

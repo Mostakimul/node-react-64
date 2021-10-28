@@ -21,7 +21,9 @@ const UpdateUser = () => {
   }, []);
   const fetchSingleUser = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:8000/user/${id}`);
+      const response = await axios.get(
+        `https://guarded-wildwood-98662.herokuapp.com/user/${id}`
+      );
       setUser(response.data);
     } catch (error) {
       console.log(error);
@@ -37,7 +39,7 @@ const UpdateUser = () => {
   const updateUser = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:8000/update/${id}`,
+        `https://guarded-wildwood-98662.herokuapp.com/update/${id}`,
         user
       );
       if (response.data.modifiedCount > 0) {
