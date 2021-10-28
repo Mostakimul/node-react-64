@@ -42,7 +42,7 @@ const UpdateUser = () => {
       );
       if (response.data.modifiedCount > 0) {
         setUpdateMsg('User Update Successfully!');
-        setUser({});
+        // setUser({});
       }
     } catch (error) {
       console.log(error);
